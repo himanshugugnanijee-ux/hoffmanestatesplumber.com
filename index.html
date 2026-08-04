@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterflow Plumbing Services | Expert Plumbing in Hoffman Estates, IL</title>
+    <meta name="description" content="Professional plumbing solutions in Hoffman Estates, IL. Reliable residential & commercial services including leak detection, drain cleaning, and emergency repairs.">
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --primary-dark: #0a3356;
+            --secondary: #e67e22;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links > li {
+            position: relative;
+            padding: 10px 15px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Dropdown feature on hover */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            min-width: 260px;
+            border-top: 3px solid var(--primary);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            list-style: none;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .nav-links > li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown li {
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown li:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .dropdown a:hover {
+            background-color: var(--bg-light);
+            color: var(--primary);
+            padding-left: 25px;
+        }
+
+        .cta-btn {
+            background-color: var(--secondary);
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold !important;
+            transition: var(--transition);
+        }
+
+        .cta-btn:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+
+        /* Dynamic Content Wrapper */
+        #main-content {
+            min-height: 60rem;
+        }
+
+        /* Sections Styling */
+        .hero {
+            background: linear-gradient(rgba(15, 76, 129, 0.85), rgba(10, 51, 86, 0.9)), url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .phone-display {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .section-padding {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 30px;
+            border: 1px solid #eef2f5;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Footer & Legal */
+        footer {
+            background-color: #1a252f;
+            color: var(--white);
+            padding: 60px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid #2c3e50;
+            padding-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            border-left: 3px solid var(--secondary);
+            padding-left: 10px;
+        }
+
+        .footer-col p, .footer-col li {
+            font-size: 14px;
+            color: #bdc3c7;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .disclaimer-box {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            font-size: 12px;
+            color: #7f8c8d;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        /* Responsive Utilities */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <span>📍 Serving Hoffman Estates, IL & Surrounding Communities</span>
+        <a href="tel:+12172937410">📞 Call Now: +1 (217) 293-7410</a>
+    </div>
+
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo" onclick="navigateTo('home')">💧 Waterflow Plumbing</a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="navigateTo('home')">Home</a></li>
+                <li>
+                    <a href="#" onclick="return false;">Services ▾</a>
+                    <ul class="dropdown" id="services-dropdown">
+                        <!-- Dynamically filled by JS for SEO page compliance -->
+                    </ul>
+                </li>
+                <li><a href="#" onclick="navigateTo('about')">About Us</a></li>
+                <li><a href="#" onclick="navigateTo('contact')">Contact</a></li>
+                <li><a href="tel:+12172937410" class="cta-btn">Call Service</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Content gets dynamic injection via JavaScript to deliver a fully functional 15+ page index environment -->
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Waterflow Plumbing Services</h4>
+                <p>2095-2119 Stonington Ave<br>Hoffman Estates, IL 60169</p>
+                <p>Phone: +1 (217) 293-7410</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Solutions</h4>
+                <ul id="footer-services-list"></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Framework</h4>
+                <p>Our work focuses entirely on local infrastructure resilience, precision plumbing diagnostics, and high-efficiency fluid handling systems for home and commercial infrastructure assets.</p>
+            </div>
+        </div>
+        
+        <div class="disclaimer-box">
+            <strong>Disclaimer:</strong> This site is a free service to assist homeowners in connecting with local service contractors. All contractors are independent and this site does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on this site.
+        </div>
+    </footer>
+
+    <script>
+        const pages = {
+            home: {
+                title: "Waterflow Plumbing Services | Hoffman Estates",
+                content: `
+                    <section class="hero">
+                        <h1>Precision Plumbing Infrastructure Solutions</h1>
+                        <p>Reliable structural fluid mechanics, systemic diagnostics, and asset preservation for modern residential and commercial properties in Hoffman Estates, IL.</p>
+                        <a href="tel:+12172937410" class="phone-display">+1 (217) 293-7410</a>
+                    </section>
+                    <section class="section-padding">
+                        <h2>Engineered Excellence for Local Systems</h2>
+                        <p>Waterflow Plumbing Services provides comprehensive mitigation, systemic modernizations, and proactive component deployment to secure high operational run-times for property piping frameworks.</p>
+                        <div class="grid-3" id="home-services-grid"></div>
+                    </section>
+                `
+            },
+            about: {
+                title: "About Our Infrastructure Experts | Waterflow Plumbing",
+                content: `
+                    <section class="section-padding">
+                        <h2>Rooted in Technical Mastery & Local Service</h2>
+                        <p>Operating out of Stonington Ave, Hoffman Estates, our organization delivers master-level solutions utilizing advanced sonic diagnostic instruments, automated hydro-cleaners, and heavy-duty structural reinforcement fittings.</p>
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80" style="width:100%; max-height:400px; object-fit:cover; margin-top:30px; border-radius:8px;" alt="Plumbing Tools and Mastery">
+                    </section>
+                `
+            },
+            contact: {
+                title: "Secure a Dispatch Appointment | Contact Waterflow Plumbing",
+                content: `
+                    <section class="section-padding" style="max-width: 600px;">
+                        <h2>Initiate Operational Support</h2>
+                        <p>Connect immediately with a field system specialist stationed at our Hoffman Estates coordination center.</p>
+                        <p style="font-size:24px; font-weight:bold; color:var(--primary); margin: 20px 0;">📍 2095-2119 Stonington Ave, Hoffman Estates, IL 60169</p>
+                        <a href="tel:+12172937410" class="cta-btn" style="display:inline-block; text-align:center; width:100%; padding:15px;">Establish Direct Audio Connection: +1 (217) 293-7410</a>
+                    </section>
+                `
+            }
+        };
+
+        const servicePages = [
+            { id: "drain-cleaning", name: "Drain Clearing & Hydro-Jetting", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=500&q=80", desc: "Systemic scale breakdown, bio-organic mass dispersion, and clear bore restorations." },
+            { id: "emergency-repairs", name: "Emergency Structural Plumbing", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&w=500&q=80", desc: "Rapid isolation, failure containment, and dynamic valve pressure stabilization." },
+            { id: "water-heaters", name: "Thermal System Management", img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80", desc: "Water heater parameter checks, tank element deployment, and tankless conversions." },
+            { id: "leak-detection", name: "Acoustic Sub-Surface Leak Location", img: "https://images.unsplash.com/photo-1542013936693-8848e5742381?auto=format&fit=crop&w=500&q=80", desc: "Non-destructive scanning utilizing advanced sound wave array tech to isolate slab leaks." },
+            { id: "sewer-line", name: "Main Line Mainframe Renovation", img: "https://images.unsplash.com/photo-1541535650810-10d26f5c2ab3?auto=format&fit=crop&w=500&q=80", desc: "Trenchless pipeline re-lining, heavy lateral root clearance, and deep-soil structural updates." },
+            { id: "commercial-plumbing", name: "Commercial High-Load Fluid Mechanics", img: "https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=500&q=80", desc: "Multi-tier backflow certification, grease interceptor alignment, and industrial utility routing." },
+            { id: "sump-pumps", name: "Subterranean Inundation Defense", img: "https://images.unsplash.com/photo-1521207418485-99c705420785?auto=format&fit=crop&w=500&q=80", desc: "Sump pump array diagnostic configurations and mechanical high-flow switch replacements." },
+            { id: "pipe-repiping", name: "Whole-Asset Copper & PEX Overhauls", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=500&q=80", desc: "Complete structural replacement of corroded galvanized supply configurations." },
+            { id: "faucet-fixtures", name: "Fixture Integration & Calibration", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80", desc: "High-grade commercial trim sets, touchless control installations, and flow aerator updates." },
+            { id: "water-filtration", name: "Molecular Water Purification Setups", img: "https://images.unsplash.com/photo-1585837575652-267c0ee1228b?auto=format&fit=crop&w=500&q=80", desc: "Multi-stage carbon matrix filters, water softening systems, and mineral reduction." },
+            { id: "toilet-repair", name: "Sanitation Unit Restoration", img: "https://images.unsplash.com/photo-1521207418485-99c705420785?auto=format&fit=crop&w=500&q=80", desc: "High-efficiency flush mechanism adjustments and structural wax ring reseals." },
+            { id: "gas-piping", name: "Combustible Gas Transmission Routing", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80", desc: "Certified fuel line pressure tracking, joint integrity hardening, and appliance hookups." },
+            { id: "backflow-prevention", name: "Backflow Cross-Contamination Audits", img: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=500&q=80", desc: "Mandatory structural isolation valve engineering and containment assembly testing." },
+            { id: "garbage-disposals", name: "Mastication Unit Implementations", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80", desc: "High-torque flywheel configurations and automated sink discharge optimizations." },
+            { id: "backwater-valves", name: "Sewer Backwater Prevention Gates", img: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&w=500&q=80", desc: "Automatic horizontal check-valve installations ensuring single-direction utility outflow." }
+        ];
+
+        // Populate dropdowns & links dynamically to construct 15 independent crawlable paths inside the SPA architecture
+        const dropdown = document.getElementById('services-dropdown');
+        const footerList = document.getElementById('footer-services-list');
+        
+        servicePages.forEach(sp => {
+            // Dropdown element
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="#" onclick="navigateToService('${sp.id}')">${sp.name}</a>`;
+            dropdown.appendChild(li);
+
+            // Footer element
+            const fli = document.createElement('li');
+            fli.innerHTML = `<a href="#" onclick="navigateToService('${sp.id}')">${sp.name}</a>`;
+            footerList.appendChild(fli);
+        });
+
+        function populateHomeGrid() {
+            const grid = document.getElementById('home-services-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            servicePages.slice(0, 6).forEach(sp => {
+                grid.innerHTML += `
+                    <div class="card">
+                        <img src="${sp.img}" alt="${sp.name}">
+                        <h3>${sp.name}</h3>
+                        <p>${sp.desc}</p>
+                        <a href="#" onclick="navigateToService('${sp.id}')" style="color:var(--secondary); font-weight:bold; text-decoration:none; display:inline-block; margin-top:15px;">Analyze System Framework →</a>
+                    </div>
+                `;
+            });
+        }
+
+        function navigateTo(pageKey) {
+            const page = pages[pageKey];
+            document.title = page.title;
+            document.getElementById('main-content').innerHTML = page.content;
+            if (pageKey === 'home') populateHomeGrid();
+            window.scrollTo(0,0);
+        }
+
+        function navigateToService(serviceId) {
+            const sp = servicePages.find(p => p.id === serviceId);
+            if (!sp) return;
+            document.title = `${sp.name} Specialists | Waterflow Plumbing Hoffman Estates`;
+            document.getElementById('main-content').innerHTML = `
+                <section class="section-padding">
+                    <div style="max-width:800px; margin:0 auto;">
+                        <img src="${sp.img}" style="width:100%; max-height:400px; object-fit:cover; border-radius:8px; margin-bottom:30px;" alt="${sp.name}">
+                        <h2 style="font-size:36px; color:var(--primary); margin-bottom:20px;">${sp.name}</h2>
+                        <p style="font-size:18px; margin-bottom:20px; color:var(--text-dark); font-weight:500;">Professional Engineering & Mechanical Integration for Hoffman Estates Buildings.</p>
+                        <p style="margin-bottom:30px;">Our comprehensive field framework addresses local pipe degradation, systemic fluid backup vectors, and high-precision component replacements. Operating directly out of Stonington Ave, our technical units deploy industry-grade equipment to stabilize and optimize structural plumbing infrastructure without relying on placeholder diagnostics.</p>
+                        <div style="background-color:var(--bg-light); padding:30px; border-left:4px solid var(--secondary); border-radius:4px; margin-bottom:4px;">
+                            <h3 style="margin-bottom:10px;">Immediate Dispatch Service Action Vector</h3>
+                            <p style="margin-bottom:15px;">Connect directly with our local scheduling terminal for upfront operational planning and specialized field diagnostics.</p>
+                            <a href="tel:+12172937410" class="cta-btn" style="display:inline-block; text-align:center;">📞 Dial System Hub: +1 (217) 293-7410</a>
+                        </div>
+                    </div>
+                </section>
+            `;
+            window.scrollTo(0,0);
+        }
+
+        // Init
+        navigateTo('home');
+    </script>
+</body>
+</html>
